@@ -1,6 +1,6 @@
 using System;
 
-namespace RafaelStore.Domain.StoreContext
+namespace RafaelStore.Domain.StoreContext.Entities
 {
     public class Product
     {
