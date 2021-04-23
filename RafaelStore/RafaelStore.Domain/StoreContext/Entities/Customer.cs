@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using RafaelStore.Domain.StoreContext.ValueObjects;
 
 namespace RafaelStore.Domain.StoreContext.Entities
 {
     public class Customer
     {
+        //Lista Interna
+        private readonly IList<Address> _addresses;
+
         //construtor
         //SOLID
         public Customer(
@@ -19,7 +23,7 @@ namespace RafaelStore.Domain.StoreContext.Entities
             Document = document;
             Email = email;
             Phone = phone;
-            Addresses = new List<Address>();
+            _addresses = new List<Address>();
         }
 
         //propriedades
@@ -27,7 +31,12 @@ namespace RafaelStore.Domain.StoreContext.Entities
         public Document Document { get; private set; }
         public Email Email { get; private set; }
         public string Phone { get; private set; }
-        public IReadOnlyCollection<Address> Addresses { get; private set; }
+        public IReadOnlyCollection<Address> Addresses => _addresses.ToArray();
+
+        public void AddAdress(Address address)
+        {
+            _addresses.Add(address);
+        }
 
         //Sobreescrevendo
         public override string ToString()
