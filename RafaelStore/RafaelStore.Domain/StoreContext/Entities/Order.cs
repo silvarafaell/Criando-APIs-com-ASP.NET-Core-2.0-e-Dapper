@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluentValidator;
 using RafaelStore.Domain.StoreContext.Enums;
 
 namespace RafaelStore.Domain.StoreContext.Entities
 {
-    public class Order
+    public class Order : Notifiable
     {
         private readonly IList<OrderItem> _items;
         private readonly IList<Delivery> _deliveries;
-
 
         //Construtor
         public Order(Customer customer)
@@ -38,7 +38,8 @@ namespace RafaelStore.Domain.StoreContext.Entities
         {
             //Gera o numero do pedido
             Number = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8).ToUpper(); //numero randomico
-            //Validar
+            if (_items.Count == 0)
+                AddNotification("Order", "Este pedido não possui itens");
         }
 
         //Pagar um pedido
