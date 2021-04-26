@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluentValidator;
 using RafaelStore.Domain.StoreContext.ValueObjects;
 
 namespace RafaelStore.Domain.StoreContext.Entities
 {
-    public class Customer
+    public class Customer : Notifiable
     {
         //Lista Interna
         private readonly IList<Address> _addresses;
