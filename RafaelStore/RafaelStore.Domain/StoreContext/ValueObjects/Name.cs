@@ -21,6 +21,7 @@ namespace RafaelStore.Domain.StoreContext.ValueObjects
         }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
+        public bool IsValid { get; set; }
 
         public override string ToString()
         {

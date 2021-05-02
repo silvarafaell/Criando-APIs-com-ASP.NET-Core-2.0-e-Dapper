@@ -16,6 +16,7 @@ namespace RafaelStore.Domain.StoreContext.ValueObjects
 
         }
         public string Number { get; private set; }
+        public bool IsValid { get; set; }
 
         public override string ToString()
         {
