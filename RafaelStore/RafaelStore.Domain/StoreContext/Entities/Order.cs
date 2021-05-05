@@ -28,6 +28,8 @@ namespace RafaelStore.Domain.StoreContext.Entities
         public IReadOnlyCollection<OrderItem> Items => _items.ToArray();
         public IReadOnlyCollection<Delivery> Deliveries => _deliveries.ToArray();
 
+        public bool IsValid { get; set; }
+
         public void AddItem(Product product, decimal quantity)
         {
             if (quantity > product.QuantityOnHand)
@@ -58,7 +60,7 @@ namespace RafaelStore.Domain.StoreContext.Entities
         {
             //A cada 5 produtos é uma entrega
             var deliveries = new List<Delivery>();
-            deliveries.Add(new Delivery(DateTime.Now.AddDays(5)));
+            //deliveries.Add(new Delivery(DateTime.Now.AddDays(5)));
             var count = 1;
 
             //Quebra as entregas
@@ -81,7 +83,7 @@ namespace RafaelStore.Domain.StoreContext.Entities
         }
 
         //Cancelar um pedido
-        public void cancel()
+        public void Cancel()
         {
             Status = EOrderStatus.Canceled;
             _deliveries.ToList().ForEach(x => x.Cancel());
