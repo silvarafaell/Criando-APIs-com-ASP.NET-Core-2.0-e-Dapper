@@ -1,9 +1,10 @@
 using FluentValidator;
 using FluentValidator.Validation;
+using RafaelStore.Shared.Commands;
 
 namespace RafaelStore.Domain.StoreContext.Commands.CustomerCommands.Inputs
 {
-    public class CreateCustomerCommand : Notifiable
+    public class CreateCustomerCommand : Notifiable, ICommand
     {
         //FailFastValidation
         public string FirstName { get; set; }
