@@ -12,6 +12,7 @@ namespace RafaelStore.Domain.StoreContext.Commands.CustomerCommands.Inputs
         public string Document { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public bool IsValid { get; private set; }
 
         public bool Valid()
         {
@@ -24,7 +25,7 @@ namespace RafaelStore.Domain.StoreContext.Commands.CustomerCommands.Inputs
                         .IsEmail(Email, "Email", "O e-mail é inválido")
                         .HasLen(Document, 11, "Document", "CPF Inválido")
                     );
-            return Valid();
+            return IsValid;
         }
     }
 }
