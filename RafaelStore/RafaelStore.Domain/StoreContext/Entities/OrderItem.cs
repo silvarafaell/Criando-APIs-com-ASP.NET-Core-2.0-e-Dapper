@@ -1,9 +1,8 @@
-using System.Collections.Generic;
-using FluentValidator;
+using RafaelStore.Shared.Entities;
 
 namespace RafaelStore.Domain.StoreContext.Entities
 {
-    public class OrderItem : Notifiable
+    public class OrderItem : Entity
     {
         //Construtor
         public OrderItem(Product product, decimal quantity)

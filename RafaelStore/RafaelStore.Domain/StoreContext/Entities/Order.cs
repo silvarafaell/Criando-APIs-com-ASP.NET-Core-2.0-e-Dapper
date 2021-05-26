@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentValidator;
 using RafaelStore.Domain.StoreContext.Enums;
+using RafaelStore.Shared.Entities;
 
 namespace RafaelStore.Domain.StoreContext.Entities
 {
-    public class Order : Notifiable
+    public class Order : Entity
     {
         private readonly IList<OrderItem> _items;
         private readonly IList<Delivery> _deliveries;

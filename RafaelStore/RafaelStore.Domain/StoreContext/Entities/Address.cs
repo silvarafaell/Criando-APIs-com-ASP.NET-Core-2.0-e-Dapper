@@ -1,10 +1,9 @@
-using System;
 using BaltaStore.Domain.StoreContext.Enums;
-using FluentValidator;
+using RafaelStore.Shared.Entities;
 
 namespace RafaelStore.Domain.StoreContext.Entities
 {
-    public class Address : Notifiable
+    public class Address : Entity
     {
         public Address(string street,
             string number,

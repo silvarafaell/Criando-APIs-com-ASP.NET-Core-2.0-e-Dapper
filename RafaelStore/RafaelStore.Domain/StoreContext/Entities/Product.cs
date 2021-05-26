@@ -1,9 +1,8 @@
-using System;
-using FluentValidator;
+using RafaelStore.Shared.Entities;
 
 namespace RafaelStore.Domain.StoreContext.Entities
 {
-    public class Product : Notifiable
+    public class Product : Entity
     {
         //Construtor   
         public Product(string title, string description, string image, decimal price, decimal quantity)
