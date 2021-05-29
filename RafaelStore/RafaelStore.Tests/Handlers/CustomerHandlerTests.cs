@@ -19,9 +19,11 @@ namespace RafaelStore.Tests
             command.Email = "francisco_rafael@hotmail.com.br";
             command.Phone = "85996029268";
 
-            Assert.AreEqual(true, command.Valid());
-
             var handler = new CustomerHandler(new FakeCustomerRepository(), new FakeEmailService());
+            var result = handler.Handle(command);
+
+            Assert.AreNotEqual(null, result);
+            Assert.AreNotEqual(true, handler.Invalid);
         }
     }
 }
